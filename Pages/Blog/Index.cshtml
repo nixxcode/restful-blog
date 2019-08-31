@@ -10,44 +10,32 @@
 <p>
     <a asp-page="Create">+ Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BlogModel[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BlogModel[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BlogModel[0].UpdatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BlogModel[0].Content)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.BlogModel) {
-        <tr>
-            <td>
-                <a asp-page="./Details" asp-route-id="@item.Id">@item.Title</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+@foreach (var item in Model.BlogModel)
+{
+
+<div class="post">
+    <div class="post-header">
+        <h4><a asp-page="./Details" asp-route-id="@item.Id">@item.Title</a></h4>
+        <span>Posted: <time>@item.CreatedAt</time></span>
+    </div>
+    <hr/>
+    <div class="post-body">
+        <pre>@item.getCaption()</pre>
+    </div>
+    <hr/>
+    <div class="post-footer row">
+        <div class="col-sm-6">
+            @if (item.UpdatedAt.HasValue)
+            {
+                <span>Edited: <time>@item.UpdatedAt</time></span>
+            }
+        </div>
+        <div class="col-sm-6 text-right">
+            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+        </div>
+    </div>
+</div>
+
 }
-    </tbody>
-</table>
