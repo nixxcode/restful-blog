@@ -5,17 +5,17 @@
     ViewData["Title"] = "Details";
 }
 
-    <div>
-        <h4>@Html.DisplayFor(model => model.BlogModel.Title)</h4>
-        <p>Posted: <time>@Html.DisplayFor(model => model.BlogModel.CreatedAt)</time></p>
-        <hr />
-        <pre>@Html.DisplayFor(model => model.BlogModel.Content)</pre>
-        <hr />
-        @if (Model.BlogModel.UpdatedAt.HasValue)
-        {
-            <p>Edited: <time>@Html.DisplayFor(model => model.BlogModel.UpdatedAt)</time></p>
-        }
-    </div>
+<div>
+    <h4>@Html.DisplayFor(model => model.BlogModel.Title)</h4>
+    <p>Posted: <time>@Html.DisplayFor(model => model.BlogModel.CreatedAt)</time></p>
+    <hr />
+    <pre>@Html.DisplayFor(model => model.BlogModel.Content)</pre>
+    <hr />
+    @if (Model.BlogModel.UpdatedAt.HasValue)
+    {
+        <p>Edited: <time>@Html.DisplayFor(model => model.BlogModel.UpdatedAt)</time></p>
+    }
+</div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.BlogModel.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
