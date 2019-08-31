@@ -19,5 +19,10 @@ namespace restful_blog.Models
 
         [DataType(DataType.MultilineText)]
         public string Content { get; set; }
+
+        public string getCaption()
+        {
+            return Content.Length > 100 ? Content.Substring(0, 100) + "..." : Content;
+        }
     }
 }
