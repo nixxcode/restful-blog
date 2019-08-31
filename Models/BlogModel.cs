@@ -10,6 +10,7 @@ namespace restful_blog.Models
     public class BlogModel
     {   
         public int Id { get; set; }
+        [Required]
         public string Title { get; set; }
 
         [DataType(DataType.DateTime)]
@@ -18,6 +19,7 @@ namespace restful_blog.Models
         public DateTime? UpdatedAt { get; set; }
 
         [DataType(DataType.MultilineText)]
+        [Required]
         public string Content { get; set; }
 
         public string getCaption()
