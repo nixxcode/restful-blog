@@ -1,0 +1,25 @@
+﻿@model  restful_blog.Models.BlogModel
+
+    <div class="post">
+        <div class="post-header">
+            <h4><a asp-page="./Details" asp-route-id="@Model.Id">@Model.Title</a></h4>
+            <span>Posted: <time>@Model.CreatedAt</time></span>
+        </div>
+        <hr />
+        <div class="post-body">
+            <pre>@Model.Content</pre>
+        </div>
+        <hr />
+        <div class="post-footer row">
+            <div class="col-sm-6">
+                @if (Model.UpdatedAt.HasValue)
+                {
+                    <span>Edited: <time>@Model.UpdatedAt</time></span>
+                }
+            </div>
+            <div class="col-sm-6 text-right">
+                <a asp-page="./Edit" asp-route-id="@Model.Id">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@Model.Id">Delete</a>
+            </div>
+        </div>
+    </div>

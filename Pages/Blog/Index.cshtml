@@ -13,29 +13,6 @@
 
 @foreach (var item in Model.BlogModel)
 {
-
-<div class="post">
-    <div class="post-header">
-        <h4><a asp-page="./Details" asp-route-id="@item.Id">@item.Title</a></h4>
-        <span>Posted: <time>@item.CreatedAt</time></span>
-    </div>
-    <hr/>
-    <div class="post-body">
-        <pre>@item.getCaption()</pre>
-    </div>
-    <hr/>
-    <div class="post-footer row">
-        <div class="col-sm-6">
-            @if (item.UpdatedAt.HasValue)
-            {
-                <span>Edited: <time>@item.UpdatedAt</time></span>
-            }
-        </div>
-        <div class="col-sm-6 text-right">
-            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-        </div>
-    </div>
-</div>
-
+    item.Content = item.getCaption(); // This is the index, so we only want a caption of the entire post
+    <partial name="Shared/_PostPartial" model="item" />
 }
