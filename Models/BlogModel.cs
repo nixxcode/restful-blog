@@ -22,7 +22,22 @@ namespace restful_blog.Models
 
         public string getCaption()
         {
-            return Content.Length > 100 ? Content.Substring(0, 100) + "..." : Content;
+            int lineLimit = 5;
+            int characterLimit = 100;
+
+            int nthLineBreakIndex = getNthIndex(Content, '\n', lineLimit);
+
+            if (nthLineBreakIndex != Content.Length)
+            {
+                return Content.Substring(0, nthLineBreakIndex) + "...";
+            }
+
+            return Content.Length > characterLimit ? Content.Substring(0, characterLimit) + "..." : Content;
+        }
+
+        private int getNthIndex(string s, char t, int n)
+        {
+            return s.TakeWhile(c => (n -= (c == t ? 1 : 0)) > 0).Count();
         }
     }
 }
