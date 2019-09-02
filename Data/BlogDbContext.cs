@@ -13,7 +13,7 @@ namespace restful_blog.Data
         {
         }
 
-        public DbSet<Blog> BlogModel { get; set; }
+        public DbSet<Blog> Blog { get; set; }
 
         /*
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken())
