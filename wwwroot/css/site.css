@@ -78,3 +78,11 @@ hr.end {
 pre {
     margin: 0;
 }
+
+textarea#Blog_Content {
+    min-height: 400px;
+}
+
+html {
+    min-width: 205px;
+}
