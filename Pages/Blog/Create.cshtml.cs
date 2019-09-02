@@ -37,7 +37,7 @@ namespace restful_blog.Pages.Blog
             // Set CreatedAt to now
             Blog.CreatedAt = DateTime.Now;
 
-            _context.BlogModel.Add(Blog);
+            _context.Blog.Add(Blog);
 
             // We don't want to change UpdatedAt, since we're only just creating the object
             _context.Entry(Blog).Property("UpdatedAt").IsModified = false;

@@ -27,6 +27,8 @@ namespace restful_blog.Data
         [DataType(DataType.DateTime)]
         public DateTime? UpdatedAt { get; set; }
 
+
+
         public string getCaption()
         {
             int lineLimit = 5;

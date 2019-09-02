@@ -29,7 +29,7 @@ namespace restful_blog.Pages.Blog
                 return NotFound();
             }
 
-            Blog = await _context.BlogModel.FirstOrDefaultAsync(m => m.Id == id);
+            Blog = await _context.Blog.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Blog == null)
             {
@@ -74,7 +74,7 @@ namespace restful_blog.Pages.Blog
 
         private bool BlogModelExists(int id)
         {
-            return _context.BlogModel.Any(e => e.Id == id);
+            return _context.Blog.Any(e => e.Id == id);
         }
     }
 }

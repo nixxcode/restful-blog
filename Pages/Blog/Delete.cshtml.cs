@@ -28,7 +28,7 @@ namespace restful_blog.Pages.Blog
                 return NotFound();
             }
 
-            Blog = await _context.BlogModel.FirstOrDefaultAsync(m => m.Id == id);
+            Blog = await _context.Blog.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Blog == null)
             {
@@ -44,11 +44,11 @@ namespace restful_blog.Pages.Blog
                 return NotFound();
             }
 
-            Blog = await _context.BlogModel.FindAsync(id);
+            Blog = await _context.Blog.FindAsync(id);
 
             if (Blog != null)
             {
-                _context.BlogModel.Remove(Blog);
+                _context.Blog.Remove(Blog);
                 await _context.SaveChangesAsync();
             }
 

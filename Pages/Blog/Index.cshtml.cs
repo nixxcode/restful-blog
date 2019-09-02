@@ -22,7 +22,7 @@ namespace restful_blog.Pages.Blog
 
         public async Task OnGetAsync()
         {
-            BlogModel = await _context.BlogModel.ToListAsync();
+            BlogModel = await _context.Blog.ToListAsync();
         }
     }
 }
