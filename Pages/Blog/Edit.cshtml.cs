@@ -6,21 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using restful_blog.Models;
+using restful_blog.Data;
 
 namespace restful_blog.Pages.Blog
 {
     public class EditModel : PageModel
     {
-        private readonly restful_blog.Models.BlogDbContext _context;
+        private readonly restful_blog.Data.BlogDbContext _context;
 
-        public EditModel(restful_blog.Models.BlogDbContext context)
+        public EditModel(restful_blog.Data.BlogDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Models.Blog Blog { get; set; }
+        public Data.Blog Blog { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

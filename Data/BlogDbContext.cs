@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace restful_blog.Models
+namespace restful_blog.Data
 {
     public class BlogDbContext : DbContext
     {
@@ -13,7 +13,7 @@ namespace restful_blog.Models
         {
         }
 
-        public DbSet<restful_blog.Models.Blog> BlogModel { get; set; }
+        public DbSet<Blog> BlogModel { get; set; }
 
         /*
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = new CancellationToken())
