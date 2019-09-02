@@ -18,11 +18,11 @@ namespace restful_blog.Pages.Blog
             _context = context;
         }
 
-        public IList<Data.Blog> BlogModel { get;set; }
+        public IList<Data.Blog> BlogPosts { get;set; }
 
         public async Task OnGetAsync()
         {
-            BlogModel = await _context.Blog.ToListAsync();
+            BlogPosts = await _context.Blog.ToListAsync();
         }
     }
 }

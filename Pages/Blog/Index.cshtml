@@ -11,7 +11,7 @@
     <a asp-page="Create">+ Create New</a>
 </p>
 
-@foreach (var item in Model.BlogModel)
+@foreach (var item in Model.BlogPosts)
 {
     item.Content = item.getCaption(); // This is the index, so we only want a caption of the entire post
     <partial name="Shared/_PostPartial" model="item" />

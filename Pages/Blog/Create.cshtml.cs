@@ -25,7 +25,7 @@ namespace restful_blog.Pages.Blog
         }
 
         [BindProperty]
-        public Data.Blog Blog { get; set; }
+        public Data.Blog BlogPost { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -35,12 +35,12 @@ namespace restful_blog.Pages.Blog
             }
 
             // Set CreatedAt to now
-            Blog.CreatedAt = DateTime.Now;
+            BlogPost.CreatedAt = DateTime.Now;
 
-            _context.Blog.Add(Blog);
+            _context.Blog.Add(BlogPost);
 
             // We don't want to change UpdatedAt, since we're only just creating the object
-            _context.Entry(Blog).Property("UpdatedAt").IsModified = false;
+            _context.Entry(BlogPost).Property("UpdatedAt").IsModified = false;
 
             await _context.SaveChangesAsync();
 

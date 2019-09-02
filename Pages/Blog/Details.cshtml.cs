@@ -18,7 +18,7 @@ namespace restful_blog.Pages.Blog
             _context = context;
         }
 
-        public Data.Blog Blog { get; set; }
+        public Data.Blog BlogPost { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,9 +27,9 @@ namespace restful_blog.Pages.Blog
                 return NotFound();
             }
 
-            Blog = await _context.Blog.FirstOrDefaultAsync(m => m.Id == id);
+            BlogPost = await _context.Blog.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Blog == null)
+            if (BlogPost == null)
             {
                 return NotFound();
             }

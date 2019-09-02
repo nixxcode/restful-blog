@@ -20,7 +20,7 @@ namespace restful_blog.Pages.Blog
         }
 
         [BindProperty]
-        public Data.Blog Blog { get; set; }
+        public Data.Blog BlogPost { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace restful_blog.Pages.Blog
                 return NotFound();
             }
 
-            Blog = await _context.Blog.FirstOrDefaultAsync(m => m.Id == id);
+            BlogPost = await _context.Blog.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Blog == null)
+            if (BlogPost == null)
             {
                 return NotFound();
             }
@@ -46,12 +46,12 @@ namespace restful_blog.Pages.Blog
             }
 
             // Set UpdatedAt time to now
-            Blog.UpdatedAt = DateTime.Now;
+            BlogPost.UpdatedAt = DateTime.Now;
 
-            _context.Attach(Blog).State = EntityState.Modified;
+            _context.Attach(BlogPost).State = EntityState.Modified;
 
             // We don't want to update CreatedAt, since we're editing the object
-            _context.Entry(Blog).Property("CreatedAt").IsModified = false;
+            _context.Entry(BlogPost).Property("CreatedAt").IsModified = false;
 
             try
             {
@@ -59,7 +59,7 @@ namespace restful_blog.Pages.Blog
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BlogModelExists(Blog.Id))
+                if (!BlogModelExists(BlogPost.Id))
                 {
                     return NotFound();
                 }
