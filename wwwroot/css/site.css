@@ -65,8 +65,14 @@ div.post span {
     font-size: 0.8em;
 }
 
-hr {
-    margin: 0.2em 0;
+hr.start {
+    margin-top: 0.2em;
+    margin-bottom: 1.0em;
+}
+
+hr.end {
+    margin-top: 1.0em;
+    margin-bottom: 0.2em;
 }
 
 pre {

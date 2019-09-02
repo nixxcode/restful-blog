@@ -5,11 +5,11 @@
             <h4><a asp-page="./Details" asp-route-id="@Model.Id">@Model.Title</a></h4>
             <span>Posted: <time>@Model.CreatedAt</time></span>
         </div>
-        <hr />
+        <hr class="start" />
         <div class="post-body">
             <pre>@Model.Content</pre>
         </div>
-        <hr />
+        <hr class="end" />
         <div class="post-footer row">
             <div class="col-sm-6">
                 @if (Model.UpdatedAt.HasValue)
