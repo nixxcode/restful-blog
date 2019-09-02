@@ -7,20 +7,25 @@ using System.Threading.Tasks;
 
 namespace restful_blog.Models
 {
-    public class BlogModel
+    [Table("Blog")]
+    public class Blog
     {   
         public int Id { get; set; }
+
         [Required]
+        [DataType(DataType.Text)]
+        [StringLength(100, ErrorMessage = "Title cannot be longer than 100 characters")]
         public string Title { get; set; }
+
+        [Required]
+        [DataType(DataType.MultilineText)]
+        [StringLength(50000, ErrorMessage = "Post cannot be longer than 50000 characters")]
+        public string Content { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime CreatedAt { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime? UpdatedAt { get; set; }
-
-        [DataType(DataType.MultilineText)]
-        [Required]
-        public string Content { get; set; }
 
         public string getCaption()
         {

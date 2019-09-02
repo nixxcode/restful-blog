@@ -10,8 +10,8 @@ using restful_blog.Models;
 namespace restful_blog.Migrations
 {
     [DbContext(typeof(BlogDbContext))]
-    [Migration("20190830211548_UpdatedAtIsNullable")]
-    partial class UpdatedAtIsNullable
+    [Migration("20190902102039_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,23 +21,27 @@ namespace restful_blog.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("restful_blog.Models.BlogModel", b =>
+            modelBuilder.Entity("restful_blog.Models.Blog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Content");
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(50000);
 
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100);
 
                     b.Property<DateTime?>("UpdatedAt");
 
                     b.HasKey("Id");
 
-                    b.ToTable("BlogModel");
+                    b.ToTable("Blog");
                 });
 #pragma warning restore 612, 618
         }

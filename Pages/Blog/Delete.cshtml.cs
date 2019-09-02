@@ -19,7 +19,7 @@ namespace restful_blog.Pages.Blog
         }
 
         [BindProperty]
-        public BlogModel BlogModel { get; set; }
+        public Models.Blog Blog { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace restful_blog.Pages.Blog
                 return NotFound();
             }
 
-            BlogModel = await _context.BlogModel.FirstOrDefaultAsync(m => m.Id == id);
+            Blog = await _context.BlogModel.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (BlogModel == null)
+            if (Blog == null)
             {
                 return NotFound();
             }
@@ -44,11 +44,11 @@ namespace restful_blog.Pages.Blog
                 return NotFound();
             }
 
-            BlogModel = await _context.BlogModel.FindAsync(id);
+            Blog = await _context.BlogModel.FindAsync(id);
 
-            if (BlogModel != null)
+            if (Blog != null)
             {
-                _context.BlogModel.Remove(BlogModel);
+                _context.BlogModel.Remove(Blog);
                 await _context.SaveChangesAsync();
             }
 
