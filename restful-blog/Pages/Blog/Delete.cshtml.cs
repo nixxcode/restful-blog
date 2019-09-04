@@ -44,6 +44,12 @@ namespace restful_blog.Pages.Blog
                 return NotFound();
             }
 
+            // URL id should match the id submitted via POST data
+            if(id != BlogPost.Id)
+            {
+                return BadRequest();
+            }
+
             BlogPost = await _context.Blog.FindAsync(id);
 
             if (BlogPost != null)
