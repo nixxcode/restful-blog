@@ -5,7 +5,7 @@ using restful_blog.Pages.Blog;
 using restful_blog_tests.Utilities;
 using Xunit;
 
-namespace restful_blog_tests
+namespace restful_blog_tests.UnitTests
 {
     public class CreatePageTests
     {
