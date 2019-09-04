@@ -29,10 +29,13 @@ namespace restful_blog_tests.Tests
             });
         }
 
-        [Fact]
-        public async void Get_CreatePage_ReturnsOK()
+        [Theory]
+        [InlineData("/")]
+        [InlineData("/Blog")]
+        [InlineData("/Blog/Create")]
+        public async void Get_BasePages_ReturnsOK(string url)
         {
-            var response = await client.GetAsync("/blog/create");
+            var response = await client.GetAsync(url);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
 
@@ -97,12 +100,6 @@ namespace restful_blog_tests.Tests
 
 
 
-        [Fact]
-        public async void Get_IndexPage_ReturnsOK()
-        {
-            var response = await client.GetAsync("/blog");
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-        }
 
         /*
         [Fact]
