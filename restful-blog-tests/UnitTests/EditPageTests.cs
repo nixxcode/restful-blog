@@ -15,7 +15,7 @@ namespace restful_blog_tests
             await WithTestDatabase.Run(async (BlogDbContext context) =>
             {
                 var pageModel = new EditModel(context);
-                pageModel.BlogPost = SeedPosts.GetTestPost();
+                pageModel.BlogPost = DbUtil.GetTestPost();
                 await pageModel.OnPostAsync();
 
                 Assert.Equal(1, context.Blog.Count());

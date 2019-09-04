@@ -16,7 +16,7 @@ namespace restful_blog_tests
             {
                 var pageModel = new CreateModel(context);
 
-                pageModel.BlogPost = SeedPosts.GetTestPost();
+                pageModel.BlogPost = DbUtil.GetTestPost();
                 await pageModel.OnPostAsync();
 
                 Assert.Equal(1, context.Blog.Count());
