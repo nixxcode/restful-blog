@@ -20,12 +20,14 @@ namespace restful_blog_tests.Utilities
                 new BlogPost()
                 {
                     Title = "TEST TITLE: You're standing on my scarf.",
-                    Content = "TEST MESSAGE: All hail the flying spaghetti monster!"
+                    Content = "TEST MESSAGE: All hail the flying spaghetti monster!",
+                    CreatedAt = DateTime.Now
                 },
                 new BlogPost()
                 {
                     Title = "TEST TITLE: Their eyes are everywhere",
-                    Content = "TEST MESSAGE: I feel like they're watching my slick moves!"
+                    Content = "TEST MESSAGE: I feel like they're watching my slick moves!",
+                    CreatedAt = DateTime.Now
                 }
 
             };
