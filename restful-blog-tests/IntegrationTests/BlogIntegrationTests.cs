@@ -17,11 +17,11 @@ using Xunit;
 
 namespace restful_blog_tests.Tests
 {
-    public class BlogIntegrationTests : IClassFixture<WebApplicationFactory<Startup>>
+    public class BlogIntegrationTests : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
         private HttpClient client;
 
-        public BlogIntegrationTests(WebApplicationFactory<Startup> factory)
+        public BlogIntegrationTests(CustomWebApplicationFactory<Startup> factory)
         {
             client = factory.CreateClient(new WebApplicationFactoryClientOptions
             {
