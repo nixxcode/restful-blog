@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace restful_blog.Data
 {
-    [Table("Blog")]
-    public class Blog
+    [Table("BlogPosts")]
+    public class BlogPost
     {   
         public int Id { get; set; }
 

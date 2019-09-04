@@ -13,16 +13,16 @@ namespace restful_blog_tests.Utilities
             db.SaveChanges();
         }
 
-        public static List<Blog> GetSeedingPosts()
+        public static List<BlogPost> GetSeedingPosts()
         {
-            return new List<Blog>()
+            return new List<BlogPost>()
             {
-                new Blog()
+                new BlogPost()
                 {
                     Title = "TEST TITLE: You're standing on my scarf.",
                     Content = "TEST MESSAGE: All hail the flying spaghetti monster!"
                 },
-                new Blog()
+                new BlogPost()
                 {
                     Title = "TEST TITLE: Their eyes are everywhere",
                     Content = "TEST MESSAGE: I feel like they're watching my slick moves!"
@@ -31,9 +31,9 @@ namespace restful_blog_tests.Utilities
             };
         }
 
-        public static Blog GetTestPost()
+        public static BlogPost GetTestPost()
         {
-            return new Blog
+            return new BlogPost
             {
                 Content = "Test Content",
                 Title = "Test Title",

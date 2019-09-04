@@ -19,7 +19,7 @@ namespace restful_blog.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("restful_blog.Models.Blog", b =>
+            modelBuilder.Entity("restful_blog.Data.BlogPost", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,7 +39,7 @@ namespace restful_blog.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blog");
+                    b.ToTable("BlogPosts");
                 });
 #pragma warning restore 612, 618
         }
