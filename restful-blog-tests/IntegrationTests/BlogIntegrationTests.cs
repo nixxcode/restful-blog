@@ -5,6 +5,7 @@ using RazorPagesProject.Tests.Helpers;
 using restful_blog;
 using restful_blog.Data;
 using restful_blog.Pages.Blog;
+using restful_blog_tests.IntegrationTests;
 using restful_blog_tests.Utilities;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,11 @@ using Xunit;
 
 namespace restful_blog_tests.Tests
 {
-    public class CreatePageIntegrationTests : IClassFixture<WebApplicationFactory<Startup>>
+    public class BlogIntegrationTests : IClassFixture<WebApplicationFactory<Startup>>
     {
         private HttpClient client;
 
-        public CreatePageIntegrationTests(WebApplicationFactory<Startup> factory)
+        public BlogIntegrationTests(WebApplicationFactory<Startup> factory)
         {
             client = factory.CreateClient(new WebApplicationFactoryClientOptions
             {
@@ -90,5 +91,30 @@ namespace restful_blog_tests.Tests
             Assert.Equal(HttpStatusCode.OK, defaultPage.StatusCode);
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
+
+
+
+
+
+
+        [Fact]
+        public async void Get_IndexPage_ReturnsOK()
+        {
+            var response = await client.GetAsync("/blog");
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        /*
+        [Fact]
+        public async void Get_IndexPage_ReturnsPosts()
+        {
+            var response = await client.GetAsync("/blog");
+            var content = await HtmlHelpers.GetDocumentAsync(defaultPage);
+
+            Assert.Equal(HttpStatusCode.OK, defaultPage.StatusCode);
+            Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
+            Assert.Equal("/Blog", response.Headers.Location.OriginalString);
+        }
+        */
     }
 }
