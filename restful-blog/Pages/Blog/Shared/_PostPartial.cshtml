@@ -1,4 +1,4 @@
-﻿@model  restful_blog.Data.Blog
+﻿@model  restful_blog.Data.BlogPost
 
     <div class="post">
         <div class="post-header">
@@ -6,8 +6,10 @@
             <span>Posted: <time>@Model.CreatedAt</time></span>
         </div>
         <hr class="start" />
-        <div class="post-body">
-            <pre>@Model.Content</pre>
+        <div class="post-body row">
+            <div class="col-sm-12">
+                <pre>@Model.Content</pre>
+            </div>
         </div>
         <hr class="end" />
         <div class="post-footer row">

@@ -9,17 +9,16 @@ using restful_blog.Data;
 
 namespace restful_blog.Pages.Blog
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly restful_blog.Data.BlogDbContext _context;
 
-        public DeleteModel(restful_blog.Data.BlogDbContext context)
+        public DetailsModel(restful_blog.Data.BlogDbContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Data.Blog BlogPost { get; set; }
+        public Data.BlogPost BlogPost { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -36,24 +35,5 @@ namespace restful_blog.Pages.Blog
             }
             return Page();
         }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            BlogPost = await _context.Blog.FindAsync(id);
-
-            if (BlogPost != null)
-            {
-                _context.Blog.Remove(BlogPost);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
-        }
-
     }
 }

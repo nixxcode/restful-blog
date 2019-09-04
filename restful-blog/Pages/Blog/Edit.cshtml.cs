@@ -20,7 +20,7 @@ namespace restful_blog.Pages.Blog
         }
 
         [BindProperty]
-        public Data.Blog BlogPost { get; set; }
+        public Data.BlogPost BlogPost { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

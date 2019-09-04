@@ -18,7 +18,7 @@ namespace restful_blog.Pages.Blog
             _context = context;
         }
 
-        public IList<Data.Blog> BlogPosts { get;set; }
+        public IList<Data.BlogPost> BlogPosts { get;set; }
 
         public async Task OnGetAsync()
         {
