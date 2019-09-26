@@ -30,11 +30,11 @@ namespace restful_blog.Data
         public string getCaption()
         {
             int lineLimit = 5;
-            int characterLimit = 100;
+            int characterLimit = 400;
 
             int nthLineBreakIndex = getNthIndex(Content, '\n', lineLimit);
 
-            if (nthLineBreakIndex != Content.Length)
+            if (nthLineBreakIndex <= characterLimit)
             {
                 return Content.Substring(0, nthLineBreakIndex) + "...";
             }
