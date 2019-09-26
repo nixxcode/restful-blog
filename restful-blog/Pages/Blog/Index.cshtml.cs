@@ -22,7 +22,7 @@ namespace restful_blog.Pages.Blog
 
         public async Task OnGetAsync()
         {
-            BlogPosts = await _context.Blog.ToListAsync();
+            BlogPosts = await _context.Blog.OrderByDescending(post => post.CreatedAt).ToListAsync();
         }
     }
 }
